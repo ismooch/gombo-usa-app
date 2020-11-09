@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CustomerService} from 'src/app/service/customer.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-customer-pred-search',
@@ -7,25 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerPredSearchComponent implements OnInit {
 title = "TypeAhead";
-  constructor() { }
+apiEndpoint = environment.apiEndpoint;
 
-  public myLocalList = [
-    "Burgers",
-    "Sandwhiches",
-    "French Fries",
-    "Milkshakes"
+  constructor(
+    private _customerService : CustomerService
+  ) {}
 
-
-
-
-
-  ];
-
+  
+  public myLocalList = [];
   public search1 = '';
+
   selectedStatic(result) {
     this.search1 = result;
 
   }
+
+
+
+  updateList(value: string) {
+    this._customerService.getCustomers(value).subscribe(
+      (_response) => { 
+        this.myLocalList = _response['data'];
+      },
+      (error) => {
+
+      }
+    );
+  }
+
+
+
 
   ngOnInit(): void {
   }

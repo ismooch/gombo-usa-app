@@ -6,21 +6,17 @@
 
     </div>
 </div>
-<div>
-    <app-customer-pred-search></app-customer-pred-search>
-
-
-</div>
 <div class="row" *ngIf="data">
 
     <div class="col-md-2  mt-3 offset-md-1 btn btn-warning">
-        <app-customer-pred-search></app-customer-pred-search>
         <a [routerLink]="['/customer/index']" class="btn">
             Customers 
             <span class="badge badge-light"> 
                 {{ data['customers']['nbCustomers']}}
             </span>
+            
         </a>
+        <app-customer-pred-search></app-customer-pred-search>
     </div>
     <div class="col-md-2   mt-3 offset-md-1  btn btn-secondary" *ngIf="data">
         <a [routerLink]="['/event/index']" class="btn">Events 
@@ -36,5 +32,4 @@
        </span>
     </a>
     </div>
-    
 </div>
