@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import {NgxTypeaheadModule} from 'ngx-typeahead';
 import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +33,7 @@ import { SpEditComponent } from './salesPerson/sp-edit/sp-edit.component';
 import { SpDeleteComponent } from './salesPerson/sp-delete/sp-delete.component';
 import { CrIndexComponent } from './calendarReport/cr-index/cr-index.component';
 import { EventExportComponent } from './event/event-export/event-export.component';
+import { CustomerPredSearchComponent } from './customer-pred-search/customer-pred-search.component';
 
 
 
@@ -65,13 +66,15 @@ import { EventExportComponent } from './event/event-export/event-export.componen
     SpDeleteComponent,
     CrIndexComponent,
     EventExportComponent,
+    CustomerPredSearchComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    NgxTypeaheadModule
   ],
   providers: [
     NgbActiveModal,
