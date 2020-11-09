@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>Event list &rsaquo; all data</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+       <!-- <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/event/add']" routerLinkActive="active">
+          <i class="fa fa-plus-square"> </i> New event
+        </a>
+         <button class="btn btn-sm btn-outline-secondary">Export</button> -->
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="row">
+      <div class="col-md-2 mb-2" *ngIf="events">
+        <span class="badge badge-secondary"> {{records}} records found </span>
+      </div>
+      <div class="col-md-8">
+        <app-event-search (eventsEmitter)="receiveEventsFiltered($event)"> </app-event-search>
+      </div>
+      <div class="col-md-2 mb-2">
+        <app-event-export [events]="events"></app-event-export>
+      </div>
+  </div>
+
+  
+  
+  <div class="row">
+    <div class="table-responsive  col-md-12">
+      <table *ngFor="let key of keys" style="margin-bottom: 25px;"class="table table-hover table-striped table-sm">
+          <thead>
+              <tr>
+                <th style="width:5%"> <span class="badge badge-info">{{key}} </span></th>
+                <th style="width:20%">City/Location</th>
+                <th style="width:20%">Event</th>
+                <th style="width:10%">Time</th>
+                <th style="width:25%">Contact</th>
+                <th style="width:10%">Description</th>
+                <th style="width:10%"></th>
+              </tr>
+            </thead>
+              <tbody>
+                <tr *ngFor="let item of events[key]">
+                  <td style="width:5%"></td>
+                  <td style="width:20%"> {{item.city}}, {{item.location}}  
+                  </td>
+                  <td style="width:20%"> 
+                    <a [routerLink]="['/event/detail', item.event_id]" class="link"
+                    title="Event details"> {{item.event_name}}</a> 
+                     
+                  </td>
+                  <td> <span *ngIf="item.event_time">{{item.event_time}}</span> </td>
+                  <td style="width:20%"> {{item.contact}} - {{item.contact_phone}}  </td>
+                  <td style="width:10%"> {{item.description}}  </td>
+                  
+                  <td style="width:10%">
+                      <a class="badge badge-warning text-white" [routerLink]="['/event/edit', item.event_id]" [queryParams]="{ eventDateId:item.event_date_id }" title="Update event"> <i class="fa fa-edit"></i> update</a> &nbsp;
+                      <!-- <a class="badge badge-danger text-white" title="Delete event"> <i class="fa fa-trash"></i> delete</a>
+                      <a class="dropdown-item" (click)="open('confirmeventDeletePanel', event)" title="Delete this data">Delete</a>  -->
+                  </td>
+              </tr> 
+              </tbody>
+            </table>
+    </div>
+  
+    
+  </div>
+  
+  
+  

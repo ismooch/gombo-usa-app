@@ -1,0 +1,9 @@
+<form class="form-inline" #frmUpdateSalesPerson="ngForm">
+
+    <input [(ngModel)]="theSalesPerson.sales_person_fullname" type="text" class="form-control-sm mb-4 mr-sm-2 col-md-8" 
+         id="sales_person_fullname" placeholder="sales person name"  name="sales_person_fullname" required>
+    
+  
+    <button  (click)="updateSalesPerson()" class="btn btn-warning mb-4 btn-sm text-white"> <i class="fa fa-save"></i> update </button>
+
+  </form>

@@ -1,0 +1,164 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>Customer Details &rsaquo; <span *ngIf="customer" class="badge badge-light bg-info text-white">
+            {{customer.customer_name}} </span> </h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a *ngIf="customer" class="btn btn-sm btn-outline-secondary"
+                [routerLink]="['/event/add/customer', customer.customer_id]">
+                <i class="fa fa-calendar"> </i> new event
+            </a> &nbsp;
+            <button (click)="editCustomer()" class="btn btn-outline-primary btn-sm"> <i class="fa fa-edit"></i> edit
+                Customer </button> &nbsp;
+            <button (click)="open('confirmCustomerDeletePanel', customer)" class="btn btn-outline-danger btn-sm"> <i
+                    class="fa fa-trash"></i> delete Customer </button>&nbsp;
+            <a *ngIf="customer" class="btn btn-sm btn-outline-secondary" [routerLink]="['/customer/index']">
+                <i class="fa fa-list"> </i> all customers
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="errorMsg" class="row">
+    <div class="col-md-4 offset-md-2 alert alert-danger alert-dismissible fade show t-2" role="alert">
+        <h4 class="alert-heading">Oups! </h4>
+        <p>{{errorMsg['msg']}} </p>
+        <hr>
+        <p>An error occured...Thanks to try again later!</p>
+    </div>
+    <div class="col-md-2 offset-md-2 ">
+        <img src="./assets/img/{{errorMsg['code']}}.jpg" alt="" id="errorImage">
+    </div>
+</div>
+
+
+<div *ngIf="customer" class="emp-profile">
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Get all information done!
+    </div>
+    <form method="post">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <span class="font-weight-bold"> Contact Name 1 : </span> {{customer.contact_name_1}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Contact Name 2  : </span> {{customer.contact_name_2}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> First Phone : </span> {{customer.phone_1}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Second Phone : </span> {{customer.phone_2}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Cell Phone : </span> {{customer.cell_phone}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Fax :</span> {{customer.fax}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Email : </span> {{customer.email}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Website : </span> {{customer.website}} </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <span class="font-weight-bold"> First Address : </span>  {{customer.address_1}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold">  Second Address : </span> {{customer.address_2}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> City : </span>
+                            {{customer.city}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Zip : </span>
+                            {{customer.zip}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> State : </span>
+                            {{customer.state}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Country :</span> {{customer.country}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Business Type : </span>
+                            {{customer.type_of_business}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Bill Method : </span>
+                            {{customer.bill_method}}</li>
+                        
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <span class="font-weight-bold"> Bad Debt : </span> {{customer.bad_debt}}</li>
+                        <li class="list-group-item"> Sales Person : <span class="font-weight-bold"> {{customer.sales_person.sales_person_fullname}} </span></li>
+
+                        <li class="list-group-item">Do not solicit : <span class="font-weight-bold"> {{customer.do_not_solicit}} </span></li>
+                        <li class="list-group-item">User : <span class="font-weight-bold"> {{customer.user}}</span></li>
+                        <li class="list-group-item">Facebook : <span class="font-weight-bold"> {{customer.facebook}} </span></li>
+                        <li class="list-group-item">Twitter : <span class="font-weight-bold"> {{customer.twitter}} </span></li>
+                        <li class="list-group-item">Social Network 3 : <span class="font-weight-bold"> {{customer.social_network_3}} </span></li>
+                        <li class="list-group-item">Notes : <span class="font-weight-bold"> - </span></li>   
+                    </ul>
+                   
+                </div>
+            </div>
+
+
+        </div>
+        
+    </form>
+</div>
+
+
+<hr>
+<div class="row" *ngIf="allOtherEventsForCustomer">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <h6>All his events </h6> 
+            <p class="text-center">
+                <span class="badge badge-secondary"> {{allOtherEventsForCustomer.length}} events found</span>
+            </p>
+        </div>
+        
+    </div>
+    <table *ngFor="let evts of allOtherEventsForCustomer"class="table table-hover table-striped table-sm">
+            <thead>
+                <tr>
+                  <th style="width:15%"> Date</th>
+                  <th style="width:20%">Event</th>
+                  <th style="width:10%">Time</th>
+                  <th style="width:10%"></th>
+                  <th style="width:10%"></th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr *ngFor="let evt of evts">
+                    <td style="width:15%">{{evt.event_date}}</td>
+                    <td style="width:20%"> 
+                      <a [routerLink]="['/event/detail', evt.event_id]" class="link"
+                      title="Event details"> {{evt.event_name}}</a> 
+                    </td>
+                    <td> <span *ngIf="evt.event_time">{{evt.event_time}}</span> </td>
+                    <td style="width:10%"> {{evt.description}}  </td>
+                    
+                    <td style="width:10%">
+                        <a class="badge badge-warning text-white" [routerLink]="['/event/edit', evt.event_id]" [queryParams]="{ eventDateId:evt.event_date_id }" title="Update event"> <i class="fa fa-edit"></i> update</a> &nbsp;
+                        <!-- <a class="badge badge-danger text-white" title="Delete event"> <i class="fa fa-trash"></i> delete</a>
+                        <a class="dropdown-item" (click)="open('confirmeventDeletePanel', event)" title="Delete this data">Delete</a>  -->
+                    </td>
+                </tr> 
+                </tbody>
+              </table>
+    <!-- <div class="col"  *ngFor="let evt of evts" > 
+        <div class="card">
+            <div class="card-body">
+              <h6 class="card-title"> {{evt.event_name}}</h6>
+              <p class="card-subtitle mb-2 text-muted">
+                Date : {{evt.event_date}} <br>
+                Time : {{evt.event_time}} 
+                Description : {{evt.event_description}} 
+              </p>
+              <a [routerLink]="['/event/detail', evt.event_id]"  class="card-link"><i class="fa fa-eye"></i> view more details</a>
+              
+            </div>
+          </div>
+       
+    </div> -->
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

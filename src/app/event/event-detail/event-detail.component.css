@@ -1,0 +1,15 @@
+
+  .carousel{
+    margin: 0 auto;
+    margin-top: 20px;
+    width:500px;
+    border:5px solid#CCC;
+    background-color: #CCC
+  }
+  .carousel-inner{
+    height: 400px;
+  }
+  .carousel-caption{
+    color: #000;
+    top: 50%;
+  }

@@ -1,0 +1,221 @@
+<div *ngIf="customer" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4 class="h3">Update customer &rsaquo; {{customer.customer_name}}</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-secondary" href="#" [routerLink]="['/customer/index']">
+                <i class="fa fa-list"> </i> Customer list
+            </a>
+            <button class="btn btn-sm btn-outline-secondary">...</button>
+        </div>
+
+    </div>
+</div>
+
+
+<form #frmUpdCustomer="ngForm" *ngIf="customer">
+    <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event Name</div>
+                        </div>
+                        <input [(ngModel)]="customer.customer_name" type="text" class="form-control" id="customer_name" name="customer_name" placeholder="" required >
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Contact name 1</div>
+                        </div>
+                        <input  [(ngModel)]="customer.contact_name_1"  type="text" class="form-control" id="contact_name_1" name="contact_name_1" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Contact name 2</div>
+                        </div>
+                        <input [(ngModel)]="customer.contact_name_2"  type="text" class="form-control" id="contact_name_2" name="contact_name_2" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Address 1</div>
+                        </div>
+                        <input [(ngModel)]="customer.address_1"  type="text" class="form-control" id="address_1" name="address_1" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Address 2</div>
+                        </div>
+                        <input [(ngModel)]="customer.address_2"  type="text" class="form-control" id="address_2" name="address_2" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Phone 1</div>
+                        </div>
+                        <input [(ngModel)]="customer.phone_1"  type="text" class="form-control" id="phone_1" name="phone_1" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Phone 2</div>
+                        </div>
+                        <input [(ngModel)]="customer.phone_2"  type="text" class="form-control" id="phone_2" name="phone_2" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Fax</div>
+                        </div>
+                        <input [(ngModel)]="customer.fax"  type="text" class="form-control" id="fax" name="fax" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Email</div>
+                        </div>
+                        <input [(ngModel)]="customer.email"  type="text" class="form-control" id="email" name="email" placeholder=""
+                            required>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Cell Phone</div>
+                        </div>
+                        <input [(ngModel)]="customer.cell_phone"  type="text" class="form-control" id="cell_phone" name="cell_phone"
+                            placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Web Address</div>
+                        </div>
+                        <input [(ngModel)]="customer.website"  type="text" class="form-control" id="website" name="website"
+                            placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">City</div>
+                        </div>
+                        <input [(ngModel)]="customer.city"  type="text" class="form-control" id="city" name="city" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">State</div>
+                        </div>
+                        <input [(ngModel)]="customer.state"  type="text" class="form-control" id="state" name="state" placeholder="" maxlength="2"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Zip</div>
+                        </div>
+                        <input [(ngModel)]="customer.zip"  type="text" class="form-control" id="zip" name="zip" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Country</div>
+                        </div>
+                        <input [(ngModel)]="customer.country"  type="text" class="form-control" id="country" name="country"
+                            placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Type Of business</div>
+                        </div>
+                        <input [(ngModel)]="customer.type_of_business"  type="text" class="form-control" id="type_of_business" name="type_of_business"
+                            placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Bill method</div>
+                        </div>
+                        <input [(ngModel)]="customer.bill_method"  type="text" class="form-control" id="bill_method" name="bill_method"
+                            placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Bad Debt</div>
+                        </div>
+                        <input [(ngModel)]="customer.bad_debt"  type="text" class="form-control" id="bad_debt" name="bad_debt"
+                            placeholder="" required>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                     <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Sales Person</div>
+                        </div>
+                        <select [(ngModel)]="customer.sales_person.sales_person_id" class="form-control" id="sales_person_id" name="sales_person_id" placeholder="" required>
+                            <option value="0" selected> select a sales person </option>
+                            <option *ngFor="let sp of salesPersons"  value="{{sp.sales_person_id}}" 
+                                    [selected]="customer.sales_person.sales_person_id == sp.sales_person_id"> 
+                                    {{sp.sales_person_fullname}} </option>
+                        </select>
+                    </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Do not sollicit ?</div>
+                            </div>
+                            <input class="form-control" type="checkbox" id="do_not_solicit" name="do_not_solicit" checked="customer.do_not_solicit">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Notes</div>
+                            </div>
+                            <textarea [(ngModel)]="customer.notes"  class="form-control" id="notes" name="notes" placeholder=""> </textarea>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">User</div>
+                            </div>
+                            <input [(ngModel)]="customer.user"  type="text" class="form-control" id="user" name="user" placeholder="" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">DNS Reason</div>
+                            </div>
+                            <input [(ngModel)]="customer.dns_reason"  type="text" class="form-control" id="dns_reason" name="dns_reason" placeholder=""
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Facebook</div>
+                            </div>
+                            <input [(ngModel)]="customer.facebook"  type="text" class="form-control" id="facebook" name="facebook" placeholder=""
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Twitter</div>
+                            </div>
+                            <input [(ngModel)]="customer.twitter"  type="text" class="form-control" id="twitter" name="twitter" placeholder=""
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Social NetWork 3</div>
+                            </div>
+                            <input [(ngModel)]="customer.social_network_3"  type="text" class="form-control" id="social_network_3" name="social_network_3"
+                                placeholder="" required>
+                        </div>
+                       
+                </div>
+            </div>
+    </div>
+    <div class="text-center">
+        <button [disabled]="frmUpdCustomer.invalid"  class="btn btn-warning btn-block rounded-0 py-2" (click)="updateCustomer()"> 
+            <i class="fa fa-save"></i> update record </button>
+    </div>
+</form>

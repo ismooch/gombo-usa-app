@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>order list &rsaquo; all data</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/order/add']" routerLinkActive="active">
+            <i class="fa fa-plus-square"> </i> New order
+        </a>
+       <!-- <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/order/add']" routerLinkActive="active">
+          <i class="fa fa-plus-square"> </i> New order
+        </a>
+         <button class="btn btn-sm btn-outline-secondary">Export</button> -->
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="row">
+      <div class="col-md-2 mb-2" *ngIf="orders">
+        <span class="badge badge-secondary"> {{orders.length}} records found </span>
+      </div>
+      <div class="col-md-6 offset-md-4">
+        <app-order-search (ordersEmitter)="receiveOrdersFiltered($event)"> </app-order-search>
+    </div>
+  </div> 
+
+
+  <div class="row">
+    <div class="table-responsive  col-md-12">
+      <table class="table table-hover table-striped table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date of Order</th>
+            <th class="text-center">Order Type</th>
+            <th class="text-center">Total</th>            
+            <th class="text-center">Sub Total</th>
+            <th class="text-center">Delivery Method</th>
+            <th class="text-center">Payment Method</th>
+            <th>Customer</th>
+            <th>Event</th>
+            
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>
+              {{order.order_id}}
+            </td>
+            <td> 
+              <a [routerLink]="['/order/detail', order.order_id]" class="link"
+              title="More details"> {{order.date_of_order}}  </a>
+              </td>
+            <td class="text-center"> {{order.order_type}}</td>
+            <td class="text-center"> {{order.total}} </td>
+            <td class="text-center"> 
+                {{order.sub_total}}
+            </td>
+            <td class="text-center"> 
+                {{order.method_of_delivery}}
+            </td>
+            <td class="text-center"> 
+                {{order.method_of_payment}}
+            </td>
+            <td> 
+              <a [routerLink]="['/customer/detail', order.customer.customer_id]" class="link"
+              title="More details">{{order.customer.customer_name}} </a>
+            </td>
+            <td> 
+              <a *ngIf="order.event" [routerLink]="['/event/detail', order.event.event_id]" class="link"
+              title="More details">{{order.event.event_name}} </a>
+            </td>
+          
+            <td>
+                <a class="badge badge-warning text-white" [routerLink]="['/order/edit', order.order_id]" title="Update order"> <i class="fa fa-edit"></i> update</a> &nbsp;
+                 <!-- <a class="badge badge-danger text-white" title="Delete order"> <i class="fa fa-trash"></i> delete</a>
+               <a class="dropdown-item" (click)="open('confirmorderDeletePanel', order)" title="Delete this data">Delete</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    
+  </div>
+  
+  
+  

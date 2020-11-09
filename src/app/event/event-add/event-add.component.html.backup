@@ -1,0 +1,171 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4 class="h4">New Event &rsaquo; <span *ngIf="customer"> {{customer.customer_name}}  </span></h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-secondary" href="#" [routerLink]="['/event/list']">
+                <i class="fa fa-list"> </i> Event list
+            </a>
+            <button class="btn btn-sm btn-outline-secondary">...</button>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="errorMsg"  class="row">
+    <div class="col-md-4 offset-md-2 alert alert-danger alert-dismissible fade show t-2" role="alert">
+        <h4 class="alert-heading">Oups! </h4>
+        <p>{{errorMsg['msg']}} </p>
+        <hr>
+        <p>An error occured...Thanks to try again later!</p>
+    </div>
+    <div class="col-md-2 offset-md-2 ">
+        <img src="./assets/img/{{errorMsg['code']}}.jpg" alt="" id="errorImage">
+    </div>
+</div>
+
+
+<form #frmAddEvent="ngForm" *ngIf="customer"> 
+    <input ngModel type="hidden" id="customer_id" name="customer_id" [(ngModel)]="customer.customer_id">
+    <input ngModel type="hidden" id="customer_name" name="customer_name" [(ngModel)]="customer.customer_name">
+    <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event Name</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="event_name" name="event_name" placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Publication</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="publication" name="publication" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Beginning date (format: YYYY-mm-dd H:i:s)</div>
+                        </div>
+                        <input ngModel type="datetime" class="form-control form_datetime" id="beginning_date" name="beginning_date" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Ending date </div>
+                        </div>
+                        <input ngModel type="datetime" class="form-control form_datetime" id="ending_date" name="ending_date" placeholder="(format: YYYY-mm-dd H:i:s)"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Time (format: H:i:s)</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="time" name="time" placeholder="*" 
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">City</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="city" name="city" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">State</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="state" name="state" placeholder="*" maxlength="2" minlength="2"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Zip</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="zip" name="zip" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Location</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="location" name="location" placeholder="*"
+                            required>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Cell Phone</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="contact" name="contact"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Contact Phone</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="contact_phone" name="contact_phone"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event Type</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="event_type" name="event_type" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Order ID</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="order_id" name="order_id" placeholder="*" 
+                            required>
+                    </div>
+                   <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Zone</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="zone" name="zone"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Category</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="category" name="category"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Alt Date</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="alt_date" name="alt_date"
+                            placeholder="*" required>
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">User</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="user" name="user" placeholder="*" required>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="text-center">
+        <button [disabled]="frmAddEvent.invalid"  class="btn btn-info btn-block rounded-0 py-2" (click)="addEvent(frmAddEvent.value)"> <i class="fa fa-save"></i> save </button>
+    </div>
+   
+</form>
+
+
+<script type="text/javascript"> 
+    $(".form_datetime").datetimepicker({
+        format: "dd MM yyyy - hh:ii"
+    }); console.log('Loaded', $(".form_datetime"));
+</script>  

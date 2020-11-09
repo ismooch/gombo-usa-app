@@ -1,0 +1,201 @@
+<div *ngIf="event"
+    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h5>Event Detail &rsaquo; <span class="badge badge-light bg-info text-white">{{event.event_name}} </span> </h5>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a [routerLink]="['/event/add/customer', event.customer.customer_id]" routerLinkActive="active"
+                class="btn btn-outline-info btn-sm m-x-2"> <i class="fa fa-plus"></i> add event for this customer <span
+                    class="sr-only">(current)</span></a>
+            <a [routerLink]="['/event/edit', event.event_id]" routerLinkActive="active"
+                class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i> update event <span
+                    class="sr-only">(current)</span></a>
+            <a class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> delete event <span
+                    class="sr-only">(current)</span></a>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- <div *ngIf="event" class="row">
+    <h5 class="col-md-4"></h5>
+    <nav class="navbar navbar-expand-lg navbar-light col-md-5 offset-md-2 mb-3">
+        <div class="collapse navbar-collapse" id="navBarinner">
+          <div class="navbar-nav">
+            <a [routerLink]="['/event/add/customer', event.customer_id]" routerLinkActive="active" class="btn btn-outline-info btn-sm m-x-2"> <i class="fa fa-plus"></i> add event for this customer <span class="sr-only">(current)</span></a>
+            <a  [routerLink]="['/event/edit', event.event_id]" routerLinkActive="active" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i> update event <span class="sr-only">(current)</span></a>
+            <a class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> delete event <span class="sr-only">(current)</span></a>
+          </div>
+        </div>
+      </nav>
+</div> -->
+
+
+<div *ngIf="event" class="emp-profile">
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Get all information done!
+    </div>
+    <form>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" *ngFor="let date of event.dates">
+                    <div class="card-header">
+                        <strong>{{date.description}} : </strong> {{date.event_date}} {{date.event_time}}
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <span class="font-weight-bold"> City :</span> {{event.city}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Zip : </span> {{event.zip}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> State : </span> {{event.state}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Location : </span> {{event.location}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Publication : </span> {{event.publication}} </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <span class="font-weight-bold"> Contact : </span> {{event.contact}} </li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Contact Phone : </span>
+                            {{event.contact_phone}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Event Type : </span>
+                            {{event.event_type}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Order Id : </span>
+                            {{event.order_id}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Zone :</span> {{event.zone}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Category : </span>
+                            {{event.category}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> Alt Date : </span>
+                            {{event.alt_date}}</li>
+                        <li class="list-group-item"> <span class="font-weight-bold"> User : </span> {{event.user}}</li>
+                        
+                    
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    
+                    <!--  <div class="card-body">
+                        <a class="btn btn-sm btn-outline-primary"> 
+                          <i class="fa fa-eye"></i> view order detail
+                      </a> &nbsp; 
+                      <a class="btn btn-sm btn-outline-secondary"> 
+                          <i class="fas fa-file-invoice-dollar"></i> toogle to all his order
+                      </a>
+                    </div> -->
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a [routerLink]="['/customer/detail', event.customer.customer_id]"
+                            class="btn btn-sm btn-primary">
+                            <i class="fa fa-eye"></i> {{event.customer.customer_name}}
+                        </a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Email : <span class="font-weight-bold"> {{event.customer.email}}
+                            </span></li>
+                        <li class="list-group-item">Phone 1 : <span class="font-weight-bold"> {{event.customer.phone_1}}
+                            </span></li>
+                        <li class="list-group-item">Cell Phone : <span class="font-weight-bold">
+                                {{event.customer.cell_phone}} </span></li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <div class="card-header">
+                            <a class="btn btn-sm btn-secondary text-white">
+                                <i class="fa fa-eye"></i> Order x
+                            </a>
+                        </div>
+                        <li class="list-group-item"> Date of order : <span class="font-weight-bold"> - </span></li>
+                        <li class="list-group-item">Publication : <span class="font-weight-bold"> - </span></li>
+                        <li class="list-group-item">Tagline : <span class="font-weight-bold"> -</span></li>
+                    </ul>
+                    <!-- <div class="card-body">
+                      <a [routerLink]="['/customer/detail', event.customer.customer_id]" class="btn btn-sm btn-outline-primary"> 
+                        <i class="fa fa-eye"></i> view customer detail
+                    </a> &nbsp; 
+                    <a [routerLink]="['/customer/detail', event.customer.customer_id]" class="btn btn-sm btn-outline-secondary"> 
+                        <i class="fas fa-file-invoice-dollar"></i> toogle to all his order
+                    </a>
+                    </div> -->
+                </div>
+            </div>
+
+
+        </div>
+
+    </form>
+</div>
+
+
+<hr>
+<div class="row" *ngIf="event">
+    <div class="col-md-12">
+        <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <a class="btn btn-outline-secondary" (click)="getAllEventsCustomer(event.customer.customer_id)">
+                <i class="fa fa-spinner fa-spin"></i> Click here to load all events for {{event.customer.customer_name}} 
+            </a>
+            <p class="text-center"  *ngIf="allOtherEventsForCustomer" >
+                <span class="badge badge-secondary"> {{records}} records found</span>
+            </p>
+        </div> -->
+        
+    </div>
+    <div *ngIf="allOtherEventsForCustomer" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <ng-container *ngFor="let key of keys; let i = index;">
+                <!-- <ng-container *ngFor="let evt of allOtherEventsForCustomer[key];"> -->
+                    <div [ngClass]="{'carousel-item active': i == 0}">
+                        <div class="carousel-caption">
+                            {{i}} {{key}}
+                            <!-- <h3>{{i}} {{evt.event_name}} </h3> <br>
+                            <p>{{evt.event_time}}</p> 
+                            <p>{{evt.description}}</p> -->
+                        </div>
+                    </div>
+                <!-- </ng-container>   -->
+            </ng-container>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    <span *ngFor="let key of keys">
+        <div class="col-md-3" *ngFor="let evt of allOtherEventsForCustomer[key]"> 
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h6 class="card-title"> {{evt.event_name}}</h6>
+                <p class="card-subtitle mb-2 text-muted">
+                    Date : {{evt.event_date}} <br>
+                    Time : {{evt.event_time}} <br>
+                    {{evt.description}}
+                </p>
+                <a [routerLink]="['/event/detail', evt.event_id]"  class="card-link"><i class="fa fa-eye"></i> view more details</a>
+                
+                </div>
+            </div>
+        
+        </div>
+    </span> 
+</div>
+
+
+
+<!-- <li> <span class="strong"> From : </span> {{event.beginning_date}} </li> <br>
+                <li> <span class="strong"> To : </span> {{event.ending_date}} </li><br>
+                <li> <span class="strong"> To : </span> {{event.ending_date}} </li> <br>
+                <li> <span class="strong"> Time : </span> {{event.time}} </li><br>
+                <li> <span class="strong">City : </span> {{event.city}} </li><br>
+                <li> <span class="strong">Zip : </span> {{event.zip}} </li><br>
+                <li> <span class="strong">State : </span> {{event.state}} </li><br>
+                <li> <span class="strong">Location : </span> {{event.location}} </li> <br> -->

@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>Dashboard &rsaquo; statistic</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+        </div>
+
+    </div>
+</div>
+
+<div class="row" *ngIf="data">
+
+    <div class="col-md-2  mt-3 offset-md-1 btn btn-warning">
+        <a [routerLink]="['/customer/index']" class="btn">
+            Customers 
+            <span class="badge badge-light"> 
+                {{ data['customers']['nbCustomers']}}
+            </span>
+        </a>
+    </div>
+    <div class="col-md-2   mt-3 offset-md-1  btn btn-secondary" *ngIf="data">
+        <a [routerLink]="['/event/index']" class="btn">Events 
+        <span class="badge badge-light"> 
+            {{ data['events']['nbEvents']}}
+       </span>
+        </a>
+    </div>
+    <div class="col-md-2   mt-3 offset-md-1  btn btn-success" *ngIf="data">
+        <a [routerLink]="['/order/index']" class="btn">Orders 
+        <span class="badge badge-light"> 
+            {{ data['orders']['nbOrders']}}
+       </span>
+    </a>
+    </div>
+    
+</div>

@@ -1,0 +1,24 @@
+<div class="col-md-12 order-md-2 mb-4" *ngIf="ordersList" style="border-left:3px solid #CCC">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="h5">{{theCustomer.customer_name}} Orders List</span>
+      <span class="badge badge-secondary badge-pill">  </span>
+    </h4>
+    <ul class="list-group mb-3">
+      <li *ngFor="let order of ordersList" class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+          <h6 class="my-0"> {{order.date_of_order}} </h6>
+          <small class="text-muted">Type 
+            <span class="font-weight-bold">{{order.order_type}}</span> Total 
+            <span class="font-weight-bold">{{order.total}}</span></small>
+        </div>
+        <span class="text-muted">
+          <a [routerLink]="['/order/detail', order.order_id]" class="badge badge-primary"
+          title="More details"> <i class="fa fa-eye"></i> more </a></span>
+      </li>
+      
+      
+    </ul>
+
+   
+  </div>
+

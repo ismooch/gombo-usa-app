@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>Event list &rsaquo; all data</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+       <!-- <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/event/add']" routerLinkActive="active">
+          <i class="fa fa-plus-square"> </i> New event
+        </a>
+         <button class="btn btn-sm btn-outline-secondary">Export</button> -->
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="row">
+      <div class="col-md-2 mb-2" *ngIf="events">
+        <span class="badge badge-secondary"> {{events.length}} records found </span>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        <app-event-search (eventsEmitter)="receiveEventsFiltered($event)"> </app-event-search>
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-md-5">
+      
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="table-responsive  col-md-12">
+      <table class="table table-hover table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Begininng date</th>
+            <th>Name</th>
+            <th>Customer</th>
+            <th>Contact</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td> {{event.beginning_date}} </td>
+            <td> {{event.event_name}} </td>
+            <td> <a [routerLink]="['/customer/detail', event.customer_id]" class="link"
+              title="Customer details"> {{event.customer_name}}</a> </td>
+            <td> {{event.contact}} ({{event.contact_phone}})  </td>
+            <td>
+                <a class="badge badge-warning text-white" [routerLink]="['/event/edit', event.event_id]" title="Update event"> <i class="fa fa-edit"></i> update</a> &nbsp;
+                <a class="badge badge-danger text-white" title="Delete event"> <i class="fa fa-trash"></i> delete</a>
+                <!-- <a class="dropdown-item" (click)="open('confirmeventDeletePanel', event)" title="Delete this data">Delete</a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    
+  </div>
+  
+  
+  

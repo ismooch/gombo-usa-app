@@ -1,0 +1,26 @@
+<form class="form-inline" #frmSearchEvent="ngForm">
+
+    <!-- <label class="mr-sm-2  mb-4 form-text text-muted" for="">event, customer, publication...</label> -->
+
+    <label class="sr-only" for="eventName">Event Name</label>
+    <input ngModel (keyup)="searchEventBySomething(inputSearchEventBySomething.value)" #inputSearchEventBySomething 
+           minlength="3" type="text" class="form-control-sm mb-4 mr-sm-2 col-md-4" id="eventName" placeholder="eventname, city, location, customer, contact" 
+           name="filterByOtherFields">
+  
+    <label class="sr-only" for="inlineFormInputGroupBeginningDate">date</label>
+    <div class="input-group input-group-sm mb-3 mr-sm-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">from</div>
+      </div>
+      <input ngModel type="text" class="form-control-sm" id="inlineFormInputGroupBeginningDate" name="filterByStartDate" placeholder="start date">
+    </div>
+
+    <label class="sr-only" for="inlineFormInputGroupEndingDate">date</label>
+    <div class="input-group input-group-sm mb-3 mr-sm-1">
+      <div class="input-group-prepend">
+        <div class="input-group-text">to</div>
+      </div>
+      <input ngModel type="text" class="form-control-sm" id="inlineFormInputGroupEndingDate" placeholder="end date" name="filterByEndDate" >
+    </div>
+    <button (click)="filterEvents(frmSearchEvent.value)" class="btn btn-primary mb-4 btn-sm"> <i class="fa fa-search"></i> search</button>
+  </form>

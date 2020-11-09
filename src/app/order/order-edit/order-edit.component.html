@@ -1,0 +1,407 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4 class="h4">Update Order &rsaquo; </h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/order/index']">
+                <i class="fa fa-list"> </i> Order list
+            </a>
+            <button class="btn btn-sm btn-outline-secondary">...</button>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="errorMsg"  class="row">
+    <div class="col-md-4 offset-md-2 alert alert-danger alert-dismissible fade show t-2" role="alert">
+        <h4 class="alert-heading">Oups! </h4>
+        <p>{{errorMsg['msg']}} </p>
+        <hr>
+        <p>An error occured...Thanks to try again later!</p>
+    </div>
+    <div class="col-md-2 offset-md-2 ">
+        <img src="./assets/img/{{errorMsg['code']}}.jpg" alt="" id="errorImage">
+    </div>
+</div>
+
+
+<form #frmUpdateOrder="ngForm" *ngIf="order"> 
+    <input ngModel type="hidden" id="order_id" name="order_id" [(ngModel)]="order.order_id">
+    <div class="row justify-content-center">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Customer</div>
+                        </div>
+                        <select #selectCustomerList (change)="getCustomerEvents(selectCustomerList.value)"  [(ngModel)]="order.customer.customer_id"  class="form-control" id="customer_id" name="customer_id" required>
+                            <option  *ngFor="let customer of customers" value="{{customer.customer_id}}"> {{customer.customer_name}} </option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event</div>
+                        </div>
+                        <select [(ngModel)]="orderEventId"  class="form-control" id="event_id" name="event_id" required>
+                            <option value="0"> - attached to no event - </option>
+                            <option  *ngFor="let event of customerEvents" [value]="event.event_id"> {{event.event_name}} </option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Publication</div>
+                        </div>
+                        <input  [(ngModel)]="order.publication"  type="text" class="form-control" id="publication" name="publication" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"> Date of Order</div>
+                        </div>
+                        <input  [(ngModel)]="order.date_of_order"  type="datetime" class="form-control form_datetime" id="date_of_order" name="date_of_order" placeholder="required: YYYY-mm-dd H:i:s"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Issue Number</div>
+                        </div>
+                        <input  [(ngModel)]="order.issue_number"  type="text" class="form-control" id="issue_number" name="issue_number" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"> Tagline</div>
+                        </div>
+                        <input  [(ngModel)]="order.tagline"  type="text" class="form-control" id="tagline" name="tagline" placeholder="" 
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Order Type</div>
+                        </div>
+                        <input  [(ngModel)]="order.order_type"  type="text" class="form-control" id="order_type" name="order_type" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"> New or Pickup</div>
+                        </div>
+                        <input  [(ngModel)]="order.new_or_pickup"  type="text" class="form-control" id="new_or_pickup" name="new_or_pickup" placeholder="" 
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Columns</div>
+                        </div>
+                        <input  [(ngModel)]="order.columns"  type="text" class="form-control" id="columns" name="columns" placeholder=""
+                            required>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Inches</div>
+                        </div>
+                        <input  [(ngModel)]="order.inches"  type="text" class="form-control" id="inches" name="inches" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Column Inches</div>
+                        </div>
+                        <input  [(ngModel)]="order.column_inches"  type="text" class="form-control" id="column_inches" name="column_inches" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Color Type</div>
+                        </div>
+                        <input  [(ngModel)]="order.color_type"  type="text" class="form-control" id="color_type" name="color_type" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Ad Checking Copy</div>
+                        </div>
+                        <input  [(ngModel)]="order.ad_checking_copy"  type="text" class="form-control" id="ad_checking_copy" name="ad_checking_copy" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Method of Delivery</div>
+                        </div>
+                        <input  [(ngModel)]="order.method_of_delivery"  type="text" class="form-control" id="method_of_delivery" name="method_of_delivery" placeholder="" 
+                            required>
+                    </div>
+                   <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Number Of pictures</div>
+                        </div>
+                        <input  [(ngModel)]="order.number_of_pictures"  type="number" class="form-control" id="number_of_pictures" name="number_of_pictures" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Number Of logos</div>
+                        </div>
+                        <input  [(ngModel)]="order.number_of_logos"  type="number" class="form-control" id="number_of_logos" name="number_of_logos" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Special placement</div>
+                        </div>
+                        <input  [(ngModel)]="order.special_placement"  type="text" class="form-control" id="special_placement" name="special_placement" placeholder="" required>
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Proof Date</div>
+                        </div>
+                        <input  [(ngModel)]="order.proof_date"  type="text" class="form-control" id="proof_date" name="proof_date" placeholder="" required>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Sale Bills</div>
+                        </div>
+                        <input  [(ngModel)]="order.sale_bills"  type="text" class="form-control" id="sale_bills" name="sale_bills" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Production notes</div>
+                        </div>
+                        <input  [(ngModel)]="order.production_notes"  type="text" class="form-control" id="production_notes" name="production_notes" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Order Notes</div>
+                        </div>
+                        <input  [(ngModel)]="order.order_notes"  type="text" class="form-control" id="order_notes" name="order_notes" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Csr</div>
+                        </div>
+                        <input  [(ngModel)]="order.csr"  type="text" class="form-control" id="csr" name="csr" placeholder="" 
+                            required>
+                    </div>
+                   <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Sub Total</div>
+                        </div>
+                        <input  [(ngModel)]="order.sub_total"  type="number" class="form-control" id="sub_total" name="sub_total" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Discount</div>
+                        </div>
+                        <input  [(ngModel)]="order.discount"  type="text" class="form-control" id="discount" name="discount" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Discount Description</div>
+                        </div>
+                        <input  [(ngModel)]="order.discount_description"  type="text" class="form-control" id="discount_description" name="discount_description" placeholder="" required>
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Total</div>
+                        </div>
+                        <input  [(ngModel)]="order.total"  type="number" class="form-control" id="total" name="total" placeholder="" required>
+                    </div>
+                </div>
+            </div>
+
+
+            
+    </div>
+    
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Automatic Bill</div>
+                    </div>
+                    <input  [(ngModel)]="order.automatic_bill"  type="text" class="form-control" id="automatic_bill" name="automatic_bill" placeholder="" required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Method of Payment</div>
+                    </div>
+                    <input  [(ngModel)]="order.method_of_payment"  type="text" class="form-control" id="method_of_payment" name="method_of_payment" placeholder="" required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing Notes</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_notes"  type="text" class="form-control" id="billing_notes" name="billing_notes" placeholder=""
+                        required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing Name</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_name"  type="text" class="form-control" id="billing_name" name="billing_name" placeholder="" 
+                        required>
+                </div>
+               <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing Address</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_address"  type="text" class="form-control" id="billing_address" name="billing_address" placeholder="" required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing City</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_city"  type="text" class="form-control" id="billing_city" name="billing_city" placeholder="" required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing State</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_state"  type="text" class="form-control" id="billing_state" name="billing_state" placeholder="" required>
+                </div>
+                
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Billing Zip</div>
+                    </div>
+                    <input  [(ngModel)]="order.billing_zip"  type="text" class="form-control" id="billing_zip" name="billing_zip" placeholder="" required>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Billing Country</div>
+                        </div>
+                        <input  [(ngModel)]="order.billing_country"  type="text" class="form-control" id="billing_country" name="billing_country" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Billing Phone</div>
+                        </div>
+                        <input  [(ngModel)]="order.billing_phone"  type="text" class="form-control" id="billing_phone" name="billing_phone" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Billing Fax</div>
+                        </div>
+                        <input  [(ngModel)]="order.billing_fax"  type="text" class="form-control" id="billing_fax" name="billing_fax" placeholder=""
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Billing Email</div>
+                        </div>
+                        <input  [(ngModel)]="order.billing_email"  type="text" class="form-control" id="billing_email" name="billing_email" placeholder="" 
+                            required>
+                    </div>
+                   <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">User</div>
+                        </div>
+                        <input  [(ngModel)]="order.user"  type="text" class="form-control" id="user" name="user" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event Date</div>
+                        </div>
+                        <input  [(ngModel)]="order.event_date"  type="text" class="form-control" id="event_date" name="event_date" placeholder="required: YYYY-mm-dd H:i:s" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Number Of Ads</div>
+                        </div>
+                        <input  [(ngModel)]="order.number_of_ads"  type="number" class="form-control" id="number_of_ads" name="number_of_ads" placeholder="" required>
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Average Cost</div>
+                        </div>
+                        <input  [(ngModel)]="order.average_cost"  type="text" class="form-control" id="average_cost" name="average_cost" placeholder="" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Order</div>
+                        </div>
+                        <input  [(ngModel)]="order.order_day"  type="text" class="form-control" id="order_day" name="order_day" placeholder="day" required>
+                        <input  [(ngModel)]="order.order_month"  type="text" class="form-control" id="order_month" name="order_month" placeholder="month" required>
+                        <input  [(ngModel)]="order.order_year"  type="text" class="form-control" id="order_year" name="order_year" placeholder="year" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Batched</div>
+                        </div>
+                        <input  [(ngModel)]="order.batched"  type="text" class="form-control" id="batched" name="batched" placeholder="" 
+                            required>
+                    </div>
+                   <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">PO Number</div>
+                        </div>
+                        <input  [(ngModel)]="order.po_number"  type="text" class="form-control" id="po_number" name="po_number" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">No Disc</div>
+                        </div>
+                        <input  [(ngModel)]="order.no_disc"  type="text" class="form-control" id="no_disc" name="no_disc" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Sales Person</div>
+                        </div>
+                        <input  [(ngModel)]="order.sales_person"  type="text" class="form-control" id="sales_person" name="sales_person" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Equipment mart</div>
+                        </div>
+                        <input  [(ngModel)]="order.equipment_mart"  type="text" class="form-control" id="equipment_mart" name="equipment_mart" placeholder="" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Trn</div>
+                        </div>
+                        <input  [(ngModel)]="order.trn"  type="text" class="form-control" id="trn" name="trn" placeholder="" required>
+                    </div>
+                </div>
+            </div>
+   </div>
+
+
+    <div class="text-center">
+        <button [disabled]="frmUpdateOrder.invalid"  class="btn btn-warning btn-block rounded-0 py-2" (click)="updateOrder(frmUpdateOrder.value)"> 
+            <i class="fa fa-save"></i> update record </button>
+    </div>
+   
+</form>
+
+
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "dd MM yyyy - hh:ii"
+    });
+</script>  

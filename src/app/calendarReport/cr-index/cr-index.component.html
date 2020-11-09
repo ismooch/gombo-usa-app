@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4>Calendar Report</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        
+      </div>
+  
+    </div>
+  </div>
+
+  <form #frmCalendarReport="ngForm">
+    <div class="row justify-content-centerssss">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Event Type</div>
+                        </div>
+                        <select ngModel class="form-control" id="event_type_id" name="event_type_id" placeholder="*" required>
+                            <option *ngFor="let et of eventTypes"  value="{{et.event_type_id}}"> {{et.event_type}} </option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Edition</div>
+                        </div>
+                        <select ngModel class="form-control" id="edition_id" name="edition_id" placeholder="*" required>
+                            <option *ngFor="let edition of editions"  value="{{edition.edition_id}}"> {{edition.edition}} </option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Publication Date</div>
+                        </div>
+                        <input ngModel type="number" class="form-control" id="publication_date" name="publication_date" placeholder="Number of days until before publication date begins"
+                            required>
+                    </div>
+                    <div class="text-center">
+                        <button [disabled]="frmCalendarReport.invalid"  class="btn btn-info btn-block rounded-0 py-2" (click)="generate(frmCalendarReport.value)"> 
+                            <i class="fa fa-save"></i> generate</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-5" *ngIf="events">
+                <div class="alert alert-success" *ngIf="recordsCount">
+                    {{recordsCount}} records exported to file
+                </div>
+                <div class="alert alert-danger" *ngIf="!recordsCount">
+                    no records has found for this criteria. No file has been exported
+                </div>
+            </div>
+    </div>
+    
+</form>

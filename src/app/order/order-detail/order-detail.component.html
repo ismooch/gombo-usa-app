@@ -1,0 +1,379 @@
+<div *ngIf="order"
+    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h5>Order
+        <span class="badge badge-light bg-info text-white"> {{order.date_of_order}} </span>
+        &rsaquo; <span class="badge badge-light"> {{order.customer.customer_name}} </span>
+    </h5>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+
+            <a [routerLink]="['/order/index']" routerLinkActive="active"
+                class="btn btn-outline-info btn-sm"><i class="fa fa-list"></i> order list <span
+                    class="sr-only">(current)</span></a> 
+                    <a [routerLink]="['/order/edit', order.order_id]" routerLinkActive="active"
+                    class="btn btn-outline-warning btn-sm ml-2"><i class="fa fa-edit"></i> update order <span
+                        class="sr-only">(current)</span></a>
+                <a class="btn btn-outline-danger btn-sm ml-2"><i class="fa fa-trash"></i> delete order <span
+                    class="sr-only">(current)</span></a>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- <div *ngIf="order" class="row">
+    <h5 class="col-md-4"></h5>
+    <nav class="navbar navbar-expand-lg navbar-light col-md-5 offset-md-2 mb-3">
+        <div class="collapse navbar-collapse" id="navBarinner">
+          <div class="navbar-nav">
+            <a [routerLink]="['/order/add/customer', order.customer_id]" routerLinkActive="active" class="btn btn-outline-info btn-sm m-x-2"> <i class="fa fa-plus"></i> add order for this customer <span class="sr-only">(current)</span></a>
+            <a  [routerLink]="['/order/edit', order.order_id]" routerLinkActive="active" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i> update order <span class="sr-only">(current)</span></a>
+            <a class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> delete order <span class="sr-only">(current)</span></a>
+          </div>
+        </div>
+      </nav>
+</div> -->
+
+
+<div *ngIf="order" class="emp-profile">
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Get all information done!
+    </div>
+    <form>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="other-tab" data-toggle="tab" href="#order" role="tab"
+                            aria-controls="home" aria-selected="true">Order Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="billing-tab" data-toggle="tab" href="#billing" role="tab"
+                            aria-controls="profile" aria-selected="false">Billing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
+                            aria-controls="contact" aria-selected="false">Other</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="customer-tab" data-toggle="tab" href="#customer" role="tab"
+                            aria-controls="customer" aria-selected="false">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="event-tab" data-toggle="tab" href="#event" role="tab"
+                            aria-controls="event" aria-selected="false">Event</a>
+                    </li>
+                </ul>
+                <div class="tab-content p-3" id="myTabContent">
+                    <div class="tab-pane fade show active" id="order" role="tabpanel" aria-labelledby="other-tab">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Date Of Order :
+                                            </span>
+                                            {{order.date_of_order}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Publication :
+                                            </span>
+                                            {{order.publication}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Issue Number
+                                                :</span>
+                                            {{order.issue_number}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Tagline : </span>
+                                            {{order.tagline}}
+                                        </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Order Type :
+                                            </span>
+                                            {{order.order_type}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> New or Pickup :
+                                            </span>
+                                            {{order.new_or_pickup}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Columns : </span>
+                                            {{order.columns}}
+                                        </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Inches : </span>
+                                            {{order.inches}}
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Column Inches :
+                                            </span>
+                                            {{order.column_inches}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Color Type :
+                                            </span>
+                                            {{order.color_type}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Ad Checking Copy :
+                                            </span>
+                                            {{order.ad_checking_copy}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold">Method of Delivery
+                                                :</span>
+                                            {{order.method_of_delivery}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Number of pictures
+                                                : </span>
+                                            {{order.number_of_pictures}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Number of logos :
+                                            </span>
+                                            {{order.number_of_logos}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Special Placement :
+                                            </span>
+                                            {{order.special_placement}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Proof Date :
+                                            </span>
+                                            {{order.proof_date}} </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_notes:
+                                            </span>
+                                            {{order.billing_notes}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_name:
+                                            </span>
+                                            {{order.billing_name}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_address:
+                                            </span>
+                                            {{order.billing_address}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_city:
+                                            </span>
+                                            {{order.billing_city}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_state:
+                                            </span>
+                                            {{order.billing_state}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_zip:
+                                            </span>
+                                            {{order.billing_zip}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_country:
+                                            </span>
+                                            {{order.billing_country}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_phone:
+                                            </span>
+                                            {{order.billing_phone}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_fax:
+                                            </span>
+                                            {{order.billing_fax}} </li>
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> billing_email:
+                                            </span>
+                                            {{order.billing_email}} </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Sale Bills :
+                                            </span> {{order.sale_bills}}</li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Production Notes :
+                                            </span> {{order.production_notes}}</li>
+                                        <li class="list-group-item">Order Notes : <span class="font-weight-bold">
+                                                {{order.order_notes}}
+                                            </span></li>
+                                        <li class="list-group-item"> <span class="font-weight-bold">CSR : </span>
+                                            {{order.csr}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold">Sub Total : </span>
+                                            {{order.sub_total}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold">Discount : </span>
+                                            {{order.discount}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold">Discount Description
+                                                : </span>
+                                            {{order.discount_description}} </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <div class="card">
+
+                                    <ul class="list-group list-group-flush">
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Total: </span>
+                                            {{order.total}}
+                                        </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Automatic Bill:
+                                            </span>
+                                            {{order.automatic_bill}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Method of Payment:
+                                            </span>
+                                            {{order.method_of_payment}} </li>
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> User: </span>
+                                            {{order.user}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Event Date: </span>
+                                            {{order.event_date}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Number of Ads:
+                                            </span>
+                                            {{order.number_of_ads}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Average Cost:
+                                            </span>
+                                            {{order.average_cost}} </li>
+
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="card">
+
+                                    <ul class="list-group list-group-flush">
+
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Order (d,m,Y):
+                                            </span>
+                                            {{order.order_day}} {{order.order_month}} {{order.order_year}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Batched: </span>
+                                            {{order.batched}}
+                                        </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> PO Number: </span>
+                                            {{order.po_number}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> No Disc: </span>
+                                            {{order.no_disc}}
+                                        </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Sales Person:
+                                            </span>
+                                            {{order.sales_person}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Equipment Mart:
+                                            </span>
+                                            {{order.equipment_mart}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> TRN: </span>
+                                            {{order.trn}} </li>
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="customer" role="tabpanel" aria-labelledby="customer-tab">
+
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <div class="card">
+
+                                    <ul class="list-group list-group-flush">
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Name: </span>
+                                            <a [routerLink]="['/customer/detail', order.customer.customer_id]" routerLinkActive="active"
+                                            class="btn btn-link btn-sm"> {{order.customer.customer_name}} <i class="fa fa-eye"></i> </a>
+                                             </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Email: </span>
+                                            {{order.customer.email}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Phone 1 : </span>
+                                            {{order.customer.phone_1}} </li>
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Cell Phone: </span>
+                                            {{order.customer.cell_phone}} </li>
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Contact Name 1:
+                                            </span>
+                                            {{order.customer.contact_name_1}} </li>
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Address 1 : </span>
+                                            {{order.customer.address_1}} </li>
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="event-tab">
+
+                        <div class="row" *ngIf="order.event">
+                            <div class="col-md-4">
+
+                                <div class="card">
+
+                                    <ul class="list-group list-group-flush">
+
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Event : </span>
+                                            <a [routerLink]="['/event/detail', order.event.event_id]" routerLinkActive="active"
+                                            class="btn btn-link btn-sm">{{order.event.event_name}} <i class="fa fa-eye"></i> </a>
+                                             </li>
+                                        <!-- <li class="list-group-item"> <span class="font-weight-bold"> Beginning Date :
+                                            </span>
+                                            {{order.event.beginning_date}} </li>
+                                        <li class="list-group-item"> <span class="font-weight-bold"> Ending Date :
+                                            </span>
+                                            {{order.event.ending_date}} </li> -->
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+<hr>
+<div class="row" *ngIf="order">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+            <a class="btn btn-outline-secondary" (click)="getAllordersCustomer(order.customer.customer_id)">
+                <i class="fa fa-spinner fa-spin"></i> Click here to load all others order for
+                {{order.customer.customer_name}}
+            </a>
+            <p class="text-center" *ngIf="allOtherordersForCustomer">
+                <span class="badge badge-secondary"> {{allOtherordersForCustomer.length-1}} records found</span>
+            </p>
+        </div>
+
+    </div>
+    <span *ngFor="let ord of allOtherordersForCustomer">
+        <div class="col" *ngIf="ord.order_id != order.order_id">
+            <div class="card" style="width: 15rem;">
+                <div class="card-body">
+                    <h6 class="card-title"> {{ord.date_of_order}}</h6>
+                    <p class="card-subtitle mb-2 text-muted">
+                        Issue Number : {{ord.issue_number}} <br>
+                        Type : {{ord.order_type}}
+                    </p>
+                    <a [routerLink]="['/order/detail', ord.order_id]" class="card-link"><i class="fa fa-eye"></i> view
+                        more details</a>
+                    <!-- <a href="#" class="card-link">Another link</a> -->
+                </div>
+            </div>
+
+        </div>
+    </span>
+</div>

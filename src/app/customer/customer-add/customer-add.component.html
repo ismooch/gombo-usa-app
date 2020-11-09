@@ -1,0 +1,430 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h4 class="h3">New customer</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-secondary" href="#" [routerLink]="['/customer/index']">
+                <i class="fa fa-list"> </i> Customer list
+            </a>
+            <button class="btn btn-sm btn-outline-secondary">...</button>
+        </div>
+
+    </div>
+</div>
+
+
+<form #frmAddCustomer="ngForm">
+    <div class="row justify-content-center">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Name</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="customer_name" name="customer_name" placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Contact name 1</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="contact_name_1" name="contact_name_1" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Contact name 2</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="contact_name_2" name="contact_name_2" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Address 1</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="address_1" name="address_1" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Address 2</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="address_2" name="address_2" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Phone 1</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="phone_1" name="phone_1" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Phone 2</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="phone_2" name="phone_2" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Fax</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="fax" name="fax" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Email</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="email" name="email" placeholder="*"
+                            required>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Cell Phone</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="cell_phone" name="cell_phone"
+                                placeholder="*" required>
+                        </div>
+                       
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Website</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="website" name="website"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">City</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="city" name="city" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">State</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="state" name="state" placeholder="*" maxlength="2"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Zip</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="zip" name="zip" placeholder="*"
+                            required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Country</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="country" name="country"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Type Of business</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="type_of_business" name="type_of_business"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Bill method</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="bill_method" name="bill_method"
+                            placeholder="*" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Bad Debt</div>
+                        </div>
+                        <input ngModel type="text" class="form-control" id="bad_debt" name="bad_debt"
+                            placeholder="*" required>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Sales Person</div>
+                            </div>
+                            <select ngModel class="form-control" id="sales_person_id" name="sales_person_id" placeholder="*" required>
+                                <option value="0" selected> select a sales person </option>
+                                <option *ngFor="let sp of salesPersons"  value="{{sp.sales_person_id}}"> {{sp.sales_person_fullname}} </option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Do not sollicit ?</div>
+                            </div>
+                            <input  class="form-control" type="checkbox" id="do_not_solicit" name="do_not_solicit" checked>
+                            
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Notes</div>
+                            </div>
+                            <textarea ngModel class="form-control" id="notes" name="notes" placeholder="*" required> </textarea>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">User</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="user" name="user" placeholder="*" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">DNS Reason</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="dns_reason" name="dns_reason" placeholder="*"
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Facebook</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="facebook" name="facebook" placeholder="*"
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Twitter</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="twitter" name="twitter" placeholder="*"
+                                required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Social Network 3</div>
+                            </div>
+                            <input ngModel type="text" class="form-control" id="social_network_3" name="social_network_3"
+                                placeholder="*" required>
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="text-center">
+        <button [disabled]="frmAddCustomer.invalid"  class="btn btn-info btn-block rounded-0 py-2" (click)="addCustomer(frmAddCustomer.value)"> 
+            <i class="fa fa-save"></i> save record </button>
+    </div>
+</form>
+
+
+<!-- class="custom-control-input"  custom-control-label
+<div class="card-bodyss p-3  col-md-3"  style="background-color: green;">
+
+    <div class="form-group rowss">
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-fax text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="fax" name="fax" placeholder="Fax"
+                required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope-square text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="email" name="email" placeholder="Email"
+                required>
+        </div>
+        <div class="input-group mb-2 col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope-square text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="cellPhone" name="cellPhone"
+                placeholder="Cell Phone" required>
+        </div>
+        <div class="input-group mb-2 col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-browser text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="webAddress" name="webAddress"
+                placeholder="Web Address" required>
+        </div>
+    </div>
+</div>
+
+<div class="card-bodyss p-3  col-md-3"  style="background-color: yellow;">
+    <div class="form-group rowss">
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-city text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="city" name="city" placeholder="City"
+                required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-city text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="state" name="state" placeholder="State"
+                required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-mailbox text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="zip" name="zip" placeholder="Zip"
+                required>
+        </div>
+        <div class="input-group mb-2 col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-flag text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="country" name="country"
+                placeholder="Country" required>
+        </div>
+    </div>
+</div>
+<div class="card-bodysss p-3  col-md-3"  style="background-color: pink;">
+    <div class="form-group rowss">
+
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="far fa-badge text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="businessType" name="businessType"
+                placeholder="Type Of business" required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-file-invoice text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="billMethod" name="billMethod"
+                placeholder="Bill method" required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-flag text-info"></i></div>
+            </div>
+            <input ngModel type="text" class="form-control" id="badDebt" name="badDebt"
+                placeholder="Bad Debit" required>
+        </div>
+        <div class="input-group mb-2  col-md-12">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user-circle text-info"></i></div>
+            </div>
+            <select ngModel class="form-control" id="salesPerson" name="salesPerson"
+                placeholder="Sales Person" required>
+                <option value=""> Choose Sales Person </option>
+                <option value="1"> Ousmane Diallo </option>
+            </select>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<!--   
+
+
+
+
+
+
+
+
+
+
+            <div class="text-center">
+                <button [disabled]="frmAddCustomer.invalid"  class="btn btn-info rounded-0 py-2" (click)="addCustomer(frmAddCustomer.value)"> <i class="fa fa-save"></i> save </button>
+            </div>
+<div class="row">
+        <div class="col-md-12 mx-auto">
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label for="customerName">Name</label>
+                        <input type="text" class="form-control" id="customerName" name="customerName" placeholder="*">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="customerName1">Name 1</label>
+                        <input type="text" class="form-control" id="customerName1" name="customerName1" placeholder="*">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="customerName2">Name 2</label>
+                        <input type="text" class="form-control" id="customerName2" name="customerName2" placeholder="*">
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label for="phone1">Phone 1</label>
+                        <input type="text" class="form-control" id="phone1" name="phone1" placeholder="*">
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="phone2">Phone 2</label>
+                        <input type="text" class="form-control" id="phone2" name="phone2" placeholder="*">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="fax">Fax</label>
+                        <input type="text" class="form-control" id="fax" name="fax" placeholder="*">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="cellPhone">Cell Phone</label>
+                        <input type="text" class="form-control" id="cellPhone" name="cellPhone" placeholder="*">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="*">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    
+                   
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="address1">Address 1</label>
+                        <input type="text" class="form-control" id="address1" name="address1" placeholder="*">
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <label for="webAddress">Web Adress</label>
+                        <input type="text" class="form-control" id="webAddress" name="webAddress" placeholder="*">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="address2">Address 2</label>
+                        <input type="text" class="form-control" id="address2" name="address2" placeholder="*">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="salesPerson">Sales Person</label>
+                        <select class="form-control" id="salesPerson" name="salesPerson">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+
+            
+
+
+
+                <button type="button" class="btn btn-primary px-4 float-right">Save</button>
+            </form>
+        </div>
+    </div> 
+
+    -->

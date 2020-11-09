@@ -1,0 +1,31 @@
+label {
+    font-weight: bold;
+}
+
+input {
+    font-size: 0.9em;
+    
+
+}
+
+select {
+    font-size: 0.9em;
+}
+
+#customSwitch1 {
+    width:200px;
+    height: 100px;
+    margin-left: 200px;;
+}
+
+.custom-switch {
+   
+    margin-top: 10px;
+
+}
+
+
+.custom-control-label {
+    font-weight: normal;
+    font-size: 0.9em;
+}
