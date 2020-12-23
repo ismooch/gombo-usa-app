@@ -62,29 +62,29 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">Zip</div>
                         </div>
-                        <input ngModel type="text" class="form-control" id="zip" name="zip" placeholder="*"
-                            required>
+                        <input ngModel type="text" class="form-control" id="zip" name="zip" placeholder=""
+                            >
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Location</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="location" name="location" placeholder="*"
-                            required>
+                            >
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Cell Phone</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="contact" name="contact"
-                            placeholder="*" required>
+                            placeholder="" >
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Contact Phone</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="contact_phone" name="contact_phone"
-                            placeholder="*" required>
+                            placeholder="">
                     </div>
                     
                 </div>
@@ -105,29 +105,29 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">Order ID</div>
                         </div>
-                        <input ngModel type="text" class="form-control" id="order_id" name="order_id" placeholder="*" 
-                            required>
+                        <input ngModel type="text" class="form-control" id="order_id" name="order_id" placeholder="" 
+                            >
                     </div>
                    <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Zone</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="zone" name="zone"
-                            placeholder="*" required>
+                            placeholder="" >
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Category</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="category" name="category"
-                            placeholder="*" required>
+                            placeholder="" >
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Alt Date</div>
                         </div>
                         <input ngModel type="text" class="form-control" id="alt_date" name="alt_date"
-                            placeholder="*" required>
+                            placeholder="" >
                     </div>
                     
                     <div class="input-group mb-2">
@@ -150,9 +150,9 @@
                         <div class="input-group-prepends">
                             <div class="input-group-text">Day {{item}} of {{numberOfDate.length}}</div>
                         </div>
-                        <input ngModel type="datetime" class="form-control form_datetime" id="event_date_{{item}}" name="event_date_{{item}}" placeholder="YYYY-mm-dd"
+                        <input ngModel type="date" class="form-control form_datetime" id="event_date_{{item}}" name="event_date_{{item}}" placeholder="Date"
                             required>
-                       <input ngModel type="text" class="form-control" id="event_time_{{item}}" name="event_time_{{item}}" placeholder="H:i:s">
+                       <input ngModel type="text" class="form-control" id="event_time_{{item}}" name="event_time_{{item}}" placeholder="Starting Time">
                     </div>
                 </div>
             </div>

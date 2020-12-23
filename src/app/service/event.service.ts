@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { Evenement } from '../Model/Evenement';
+import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,8 @@ export class EventService {
   }
 
   insertEvent(evenement: Evenement) : Observable<Evenement> {  
+    console.log("Service Reached!");
+    console.log(evenement);
     return this.http.post<Evenement>(this.apiEndpoint, evenement);
   }
 

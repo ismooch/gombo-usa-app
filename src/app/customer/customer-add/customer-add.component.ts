@@ -37,7 +37,8 @@ export class CustomerAddComponent implements OnInit {
   }
 
 
-  addCustomer(customer: Customer) { 
+  addCustomer(customer: Customer) {
+    console.log("Customer :::: ", {...customer}); 
    if(!customer.do_not_solicit) {
       customer.do_not_solicit = "0";
     }
