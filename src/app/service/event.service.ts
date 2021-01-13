@@ -23,6 +23,14 @@ export class EventService {
     return this.http.get<Evenement[]>(this.apiEndpoint);
   }
 
+  getEvents(filterParams?: string): Observable<Evenement[]> {  
+    if(filterParams) { 
+      let params = new HttpParams().set('filterParams', filterParams);
+       return this.http.get<Evenement[]>(this.apiEndpoint, {params: params});
+    }
+    return this.http.get<Evenement[]>(this.apiEndpoint);
+  }
+
   getEventById(id: Number, eventDateId?: Number): Observable<Evenement> { 
     if(eventDateId) { 
           return this.http.get<Evenement>(this.apiEndpoint + "/" + id + "?eventDateId="+eventDateId);

@@ -45,12 +45,13 @@
         <tbody>
           <tr *ngFor="let order of orders">
             <td>
+              <a [routerLink]="['/order/detail', order.order_id]" class="link" title="More Details">
               {{order.order_id}}
+              </a>
             </td>
             <td> 
-              <a [routerLink]="['/order/detail', order.order_id]" class="link"
-              title="More details"> {{order.date_of_order}}  </a>
-              </td>
+              {{order.date_of_order}}
+            </td>
             <td class="text-center"> {{order.order_type}}</td>
             <td class="text-center"> {{order.total}} </td>
             <td class="text-center"> 

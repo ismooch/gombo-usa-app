@@ -8,5 +8,12 @@
 
 
 <ng-template #custSearchTemp let-item>
-        <a [routerLink]="['/customer/detail', item.result.customer_id]" class="link"><strong>{{item.result.customer_name}}</strong>|<p>{{item.result.phone_1}}</p>|{{item.result.address_1}}</a>
+        <a class="result" [routerLink]="['/customer/detail', item.result.customer_id]" class="link">
+                <div class="item-name">
+                  <strong>{{item.result.customer_name}}</strong>
+                </div>
+                <div class="item-desc">
+                  {{item.result.phone_1}} ||  {{item.result.email}}
+                </div>
+        </a>
 </ng-template>

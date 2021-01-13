@@ -23,6 +23,14 @@ export class OrderService {
     return this.http.get<Order[]>(this.apiEndpoint);
   }
 
+  getOrders(filterParams?: string): Observable<Order[]> {  
+    if(filterParams) { 
+       let params = new HttpParams().set('filterParams', filterParams);
+       return this.http.get<Order[]>(this.apiEndpoint, {params: params});
+    }
+    return this.http.get<Order[]>(this.apiEndpoint);
+  }
+
   getOrderById(id: Number): Observable<Order> { 
     return this.http.get<Order>(this.apiEndpoint + "/" + id);
   }

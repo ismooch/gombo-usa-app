@@ -64,7 +64,7 @@ export class EventAddComponent implements OnInit, AfterViewInit {
   }
 
   addEvent(evenement: any) {
-    console.log("Event :::: ", {...evenement, ...{'numberOfDate': this.numberOfDate.length}});
+   // console.log("Event :::: ", {...evenement, ...{'numberOfDate': this.numberOfDate.length}});
     this._eventService.insertEvent(evenement).subscribe(
        (_response) => {
          const goTo = ['/event/detail', _response['data']['eventId']]; 

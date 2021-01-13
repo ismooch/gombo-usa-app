@@ -34,6 +34,8 @@ import { SpDeleteComponent } from './salesPerson/sp-delete/sp-delete.component';
 import { CrIndexComponent } from './calendarReport/cr-index/cr-index.component';
 import { EventExportComponent } from './event/event-export/event-export.component';
 import { CustomerPredSearchComponent } from './customer-pred-search/customer-pred-search.component';
+import { EventPredSearchComponent } from './event-pred-search/event-pred-search.component';
+import { OrderPredSearchComponent } from './order-pred-search/order-pred-search.component';
 
 
 
@@ -67,6 +69,8 @@ import { CustomerPredSearchComponent } from './customer-pred-search/customer-pre
     CrIndexComponent,
     EventExportComponent,
     CustomerPredSearchComponent,
+    EventPredSearchComponent,
+    OrderPredSearchComponent,
 
   ],
   imports: [

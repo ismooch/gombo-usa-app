@@ -1,0 +1,17 @@
+<input [value]="search3"
+        #predSearch
+        (keyup)="updateList(search3)"
+        ngxTypeahead
+        [taList]="myLocalList" 
+        [taItemTpl]="orderSearchTemp"
+        (taSelected)="selectedStatic($event)">
+
+
+<ng-template #orderSearchTemp let-item>
+        <a class="result" [routerLink]="['/order/detail', item.result.order_id]" class="link">
+                
+                  <strong>{{item.result.order_id}}</strong>                      
+                  {{item.result.billing_name}} ||  {{item.result.total}}
+                
+        </a>
+</ng-template>

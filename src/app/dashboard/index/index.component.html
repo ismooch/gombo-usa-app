@@ -24,6 +24,7 @@
             {{ data['events']['nbEvents']}}
        </span>
         </a>
+        <app-order-pred-search></app-order-pred-search>
     </div>
     <div class="col-md-2   mt-3 offset-md-1  btn btn-success" *ngIf="data">
         <a [routerLink]="['/order/index']" class="btn">Orders 
@@ -31,5 +32,6 @@
             {{ data['orders']['nbOrders']}}
        </span>
     </a>
+    <app-event-pred-search></app-event-pred-search>
     </div>
 </div>
